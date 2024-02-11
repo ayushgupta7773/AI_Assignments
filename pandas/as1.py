@@ -102,7 +102,7 @@ df=pd.DataFrame({
     })
 
 
-print(df.loc[:2,"Name":"Profession"])
+# print(df.loc[:2,"Name":"Profession"])
 
 def add_and_remove(df, data, out): 
     ''' Input: df -> The dataframe passed as input data -> The list of list variable containg the rows to append out -> the variable containing the row index value to be removed 
@@ -112,17 +112,60 @@ def add_and_remove(df, data, out):
     # Remove the out index row return df
 
 
-Q7
+
+
+
+# Q7
 
 def add_and_remove(df, data, out): 
-    ''' Input: df -> The dataframe passed as input data 
+
+    '''Input: df -> The dataframe passed as input data 
     -> The list of list variable containg the rows to append out
      -> the variable containing the row index value to be removed 
     
-    Output: df -> return the dataframe df after doing the above operations '''
+    Output: df -> return the dataframe df after doing the above operations'''
     # Add the rows 
     # Remove the out index row return df
-    
+    row=pd.DataFrame(data,columns=['name',"age"])
+    # print(row)
+    df=pd.concat([df,row],ignore_index=True)
+    df=df.drop(out)
+    return df
+
+df = pd.DataFrame({
+    "name": ['a', 'b', 'c'],
+    "age": [12, 15, 18]
+})
+data = [['d', 20], ['e', 21], ['f', 22]]
+out = 4
+# New row data
+# row = {'name': ['e'], "age": [34]}
+# row=pd.DataFrame([['d', 20], ['e', 21], ['f', 22]],columns=['name',"age"])
+# print(row)
+# Append new row
+# df = pd.concat([df,row], ignore_index=True)
+
+# print(df)
+
+new=add_and_remove(df, data, out)
+# print(new)
+
+
+
+
+
+
+
+
+
+
+
+# Q8
+df=pd.read_csv("./AS1_dataset_mtcars")
+print(df)
+
+
+
 
 
 
